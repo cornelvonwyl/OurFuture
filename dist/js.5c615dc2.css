@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  width: 100%;
+}
+
+@font-face {
+  font-family: "Monument";
+  src: url("/MonumentExtended-Regular.6942f3c4.otf") format("opentype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Monument";
+  src: url("/MonumentExtended-Ultrabold.a16f3cca.otf") format("opentype");
+  font-weight: bold;
+}
+body {
+  background: black;
+  color: white;
+  font-family: "Monument";
+}
+
+.start {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  height: 100vh;
+  -webkit-box-align: center;
+          align-items: center;
+}
+.start h1 {
+  font-family: "Monument";
+  font-size: 8vw;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 35px;
+}
+.start h1:nth-child(2) {
+  font-size: 28vw;
+  -webkit-animation: yeartext 7s linear infinite;
+          animation: yeartext 7s linear infinite;
+  position: relative;
+  font-weight: bold;
+}
+.start h1:nth-child(2):before {
+  content: "imJahr";
+  position: absolute;
+  font-size: 2vw;
+  top: 74.2%;
+  left: 0.8%;
+  letter-spacing: 42px;
+  font-weight: normal;
+  z-index: 100;
+  color: black;
+  font-variation-settings: "wght" 200;
+}
+
+@-webkit-keyframes yeartext {
+  0% {
+    font-variation-settings: "wght" 300;
+  }
+  50% {
+    font-variation-settings: "wght" 700;
+  }
+  100% {
+    font-variation-settings: "wght" 300;
+  }
+}
+
+@keyframes yeartext {
+  0% {
+    font-variation-settings: "wght" 300;
+  }
+  50% {
+    font-variation-settings: "wght" 700;
+  }
+  100% {
+    font-variation-settings: "wght" 300;
+  }
+}
+.row {
+  margin-right: 0rem;
+  margin-left: 0rem;
+}
+
+.step {
+  height: 100vh;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.step * {
+  font-size: 13rem;
+}
+
+.step1 .text1 {
+  position: absolute;
+  top: 40%;
+  left: 80%;
+}
+.step1 .imgcontainer {
+  width: 50%;
+  position: absolute;
+  top: 30%;
+  right: 20%;
+  z-index: -1;
+}
+
+.step2 .text2 {
+  position: absolute;
+  top: 40%;
+  left: 80%;
+}
+.step2 .imgcontainer {
+  width: 50%;
+  position: absolute;
+  top: 30%;
+  right: 20%;
+  z-index: -1;
+}
+
+/*# sourceMappingURL=/js.5c615dc2.css.map */

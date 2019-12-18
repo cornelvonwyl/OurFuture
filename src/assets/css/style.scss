@@ -1,0 +1,129 @@
+@import "reset";
+
+@font-face {
+  font-family: "Monument";
+  src: url("/assets/font/MonumentExtended-Regular.otf") format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Monument";
+  src: url("/assets/font/MonumentExtended-Ultrabold.otf") format("opentype");
+  font-weight: bold;
+}
+
+body {
+  background: black;
+  color: white;
+  font-family: "Monument";
+}
+
+.start {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+
+  h1 {
+    font-family: "Monument";
+    font-size: 8vw;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 35px;
+  }
+
+  h1:nth-child(2) {
+    font-size: 28vw;
+    animation: yeartext 7s linear infinite;
+    position: relative;
+    font-weight: bold;
+
+    &:before {
+      content: "imJahr";
+      position: absolute;
+      font-size: 2vw;
+      top: 74.2%;
+      left: 0.8%;
+      letter-spacing: 42px;
+      font-weight: normal;
+      z-index: 100;
+      color: black;
+      font-variation-settings: "wght" 200;
+    }
+  }
+}
+
+@keyframes yeartext {
+  0% {
+    font-variation-settings: "wght" 300;
+  }
+
+  50% {
+    font-variation-settings: "wght" 700;
+  }
+
+  100% {
+    font-variation-settings: "wght" 300;
+  }
+}
+
+.row {
+  margin-right: 0rem;
+  margin-left: 0rem;
+}
+
+// .loadingbar {
+//   position: fixed;
+//   background: white;
+//   top: 0;
+//   left: 0;
+//   width: 5px;
+//   height: 0;
+//   transition: height 1s ease-out;
+// }
+
+.step {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+
+  * {
+    font-size: 13rem;
+  }
+}
+
+.step1 {
+  .text1 {
+    position: absolute;
+    top: 40%;
+    left: 80%;
+  }
+
+  .imgcontainer {
+    width: 50%;
+    position: absolute;
+    top: 30%;
+    right: 20%;
+    z-index: -1;
+  }
+}
+
+.step2 {
+  .text2 {
+    position: absolute;
+    top: 40%;
+    left: 80%;
+  }
+  .imgcontainer {
+    width: 50%;
+    position: absolute;
+    top: 30%;
+    right: 20%;
+    z-index: -1;
+  }
+}

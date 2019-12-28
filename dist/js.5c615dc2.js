@@ -11001,7 +11001,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"C:\\Users\\corne\\CloudStation\\Cornel Privat\\HSLU - Digital Ideation\\3. Semester\\Storytelling\\Abschlussarbeit\\Storytelling Project\\OurFuture\\src\\assets\\font\\MonumentExtended-Regular.otf":[["MonumentExtended-Regular.6942f3c4.otf","assets/font/MonumentExtended-Regular.otf"],"assets/font/MonumentExtended-Regular.otf"],"C:\\Users\\corne\\CloudStation\\Cornel Privat\\HSLU - Digital Ideation\\3. Semester\\Storytelling\\Abschlussarbeit\\Storytelling Project\\OurFuture\\src\\assets\\font\\MonumentExtended-Ultrabold.otf":[["MonumentExtended-Ultrabold.a16f3cca.otf","assets/font/MonumentExtended-Ultrabold.otf"],"assets/font/MonumentExtended-Ultrabold.otf"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/simple-parallax-js/dist/simpleParallax.min.js":[function(require,module,exports) {
+},{"C:\\Users\\corne\\CloudStation\\Cornel Privat\\HSLU - Digital Ideation\\3. Semester\\Storytelling\\Abschlussarbeit\\Storytelling Project\\OurFuture\\src\\assets\\font\\MonumentExtended-Regular.otf":[["MonumentExtended-Regular.6942f3c4.otf","assets/font/MonumentExtended-Regular.otf"],"assets/font/MonumentExtended-Regular.otf"],"C:\\Users\\corne\\CloudStation\\Cornel Privat\\HSLU - Digital Ideation\\3. Semester\\Storytelling\\Abschlussarbeit\\Storytelling Project\\OurFuture\\src\\assets\\font\\MonumentExtended-Ultrabold.otf":[["MonumentExtended-Ultrabold.a16f3cca.otf","assets/font/MonumentExtended-Ultrabold.otf"],"assets/font/MonumentExtended-Ultrabold.otf"],"./..\\image\\neapel.jpg":[["neapel.bb6507bf.jpg","assets/image/neapel.jpg"],"assets/image/neapel.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/simple-parallax-js/dist/simpleParallax.min.js":[function(require,module,exports) {
 var define;
 /*!
  * simpleParallax.min - simpleParallax is a simple JavaScript library that gives your website parallax animations on any images, 
@@ -23076,17 +23076,46 @@ var _ScrollToPlugin = require("gsap/ScrollToPlugin");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_gsap.gsap.registerPlugin(_CSSRulePlugin.CSSRulePlugin, _Draggable.Draggable, _EaselPlugin.EaselPlugin, _MotionPathPlugin.MotionPathPlugin, _PixiPlugin.PixiPlugin, _TextPlugin.TextPlugin, _ScrollToPlugin.ScrollToPlugin); // Step1
-//Parallax
+_gsap.gsap.registerPlugin(_CSSRulePlugin.CSSRulePlugin, _Draggable.Draggable, _EaselPlugin.EaselPlugin, _MotionPathPlugin.MotionPathPlugin, _PixiPlugin.PixiPlugin, _TextPlugin.TextPlugin, _ScrollToPlugin.ScrollToPlugin); // Start1
+//Gsap Animation
 
+
+var start1Gsap = _gsap.gsap.to(".ourworld", {
+  xPercent: 100
+}); //ScrollMagic Animation
+
+
+var controller30 = new ScrollMagic.Controller();
+var scene30 = new ScrollMagic.Scene({
+  triggerElement: '.start',
+  duration: 2000,
+  triggerHook: 0
+}).setTween(start1Gsap).addTo(controller30); // Start2
+//Gsap Animation
+
+var start2Gsap = _gsap.gsap.to(".year", {
+  xPercent: -100
+}); //ScrollMagic Animation
+
+
+var controller31 = new ScrollMagic.Controller();
+var scene40 = new ScrollMagic.Scene({
+  triggerElement: '.start',
+  duration: 2000,
+  triggerHook: 0
+}).setTween(start2Gsap).addTo(controller31); // Step1
+//Parallax
 
 var step1Para = document.getElementsByClassName('img1');
 new _simpleParallaxJs.default(step1Para, {
-  scale: 2
+  delay: .6,
+  transition: 'ease-out',
+  scale: 1.3
 }); //Gsap Animation
 
 var step1Gsap = _gsap.gsap.to(".text1", {
-  xPercent: -100
+  xPercent: 100,
+  delay: 1
 }); //ScrollMagic Animation
 
 
@@ -23095,12 +23124,15 @@ var scene1 = new ScrollMagic.Scene({
   triggerElement: '.step1',
   duration: 2000,
   triggerHook: 1
-}).setTween(step1Gsap).addIndicators().addTo(controller1); // Step2
+}).setTween(step1Gsap).addTo(controller1); // Step2
 //Parallax
 
 var step2Para = document.getElementsByClassName('img2');
 new _simpleParallaxJs.default(step2Para, {
-  scale: 2
+  delay: .6,
+  transition: 'ease-out',
+  scale: 1.3,
+  orientation: "right"
 }); //Gsap Animation
 
 var step2Gsap = _gsap.gsap.to(".text2", {
@@ -23113,18 +23145,263 @@ var scene2 = new ScrollMagic.Scene({
   triggerElement: '.step2',
   duration: 2000,
   triggerHook: 1
-}).setTween(step2Gsap).addIndicators().addTo(controller2); // const getScrollbar = document.querySelector(".loadingbar");
-// var body = document.body,
-//     html = document.documentElement;
-// var height = Math.max(body.scrollHeight, body.offsetHeight,
-//     html.clientHeight, html.scrollHeight, html.offsetHeight);
-// console.log(height);
-// window.addEventListener('scroll', function () {
-//     var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
-//     var umrechner = height - scrollTop;
-//     console.log(scrollTop);
-//     getScrollbar.style.height = (scrollTop + 600 + "px");
-// });
+}).setTween(step2Gsap).addTo(controller2); // Step3
+//Parallax
+
+var step3Para = document.getElementsByClassName('img3');
+new _simpleParallaxJs.default(step3Para, {
+  delay: .6,
+  transition: 'ease-out',
+  scale: 1.3,
+  orientation: "left"
+}); //Gsap Animation
+
+var step3Gsap = _gsap.gsap.to(".text3", {
+  xPercent: 100
+}); //ScrollMagic Animation
+
+
+var controller3 = new ScrollMagic.Controller();
+var scene3 = new ScrollMagic.Scene({
+  triggerElement: '.step3',
+  duration: 2000,
+  triggerHook: 1
+}).setTween(step3Gsap).addTo(controller3); // Step4
+//Parallax
+
+var step4Para = document.getElementsByClassName('img4');
+new _simpleParallaxJs.default(step4Para, {
+  delay: .6,
+  transition: 'ease-out',
+  scale: 1.3,
+  orientation: "up right"
+}); //Gsap Animation
+
+var step4Gsap = _gsap.gsap.to(".text4", {
+  xPercent: -100
+}); //ScrollMagic Animation
+
+
+var controller4 = new ScrollMagic.Controller();
+var scene4 = new ScrollMagic.Scene({
+  triggerElement: '.step4',
+  duration: 2000,
+  triggerHook: 1
+}).setTween(step4Gsap).addTo(controller4); // Step5
+//Parallax
+
+var step5Para = document.getElementsByClassName('img5');
+new _simpleParallaxJs.default(step5Para, {
+  delay: .6,
+  transition: 'ease-out',
+  scale: 1.3,
+  orientation: "down"
+}); //Gsap Animation
+
+var step5Gsap = _gsap.gsap.to(".text5", {
+  xPercent: 100
+}); //ScrollMagic Animation
+
+
+var controller5 = new ScrollMagic.Controller();
+var scene5 = new ScrollMagic.Scene({
+  triggerElement: '.step5',
+  duration: 2000,
+  triggerHook: 1
+}).setTween(step5Gsap).addTo(controller5); // Step6
+//Parallax
+
+var step6Para = document.getElementsByClassName('img6');
+new _simpleParallaxJs.default(step6Para, {
+  delay: .6,
+  transition: 'ease-out',
+  scale: 1.3,
+  orientation: "right"
+}); //Gsap Animation
+
+var step6Gsap = _gsap.gsap.to(".text6", {
+  xPercent: -100
+}); //ScrollMagic Animation
+
+
+var controller6 = new ScrollMagic.Controller();
+var scene6 = new ScrollMagic.Scene({
+  triggerElement: '.step6',
+  duration: 2000,
+  triggerHook: 1
+}).setTween(step6Gsap).addTo(controller6); // Step8
+//Parallax
+
+var step8Para = document.getElementsByClassName('img8');
+new _simpleParallaxJs.default(step8Para, {
+  delay: .6,
+  transition: 'ease-out',
+  scale: 1.1,
+  orientation: "down"
+}); //Gsap Animation
+
+var step8Gsap = _gsap.gsap.to(".text8", {
+  yPercent: -20
+}); //ScrollMagic Animation
+
+
+var controller8 = new ScrollMagic.Controller();
+var scene8 = new ScrollMagic.Scene({
+  triggerElement: '.step8',
+  duration: 2000,
+  triggerHook: 1
+}).setTween(step8Gsap).addTo(controller8); // Change Background
+//Gsap Animation
+
+var changeBackground = _gsap.gsap.to("body", {
+  backgroundColor: '#d2d8c5'
+}); //ScrollMagic Animation
+
+
+var controller9 = new ScrollMagic.Controller();
+var scene9 = new ScrollMagic.Scene({
+  triggerElement: '.changebackground',
+  duration: 2000,
+  triggerHook: 1
+}).setTween(changeBackground).addTo(controller9); // Change Loadingbar
+//Gsap Animation
+
+var changeloadingbar = _gsap.gsap.to(".loadingbar", {
+  backgroundColor: '#101010'
+}); //ScrollMagic Animation
+
+
+var controller10 = new ScrollMagic.Controller();
+var scene10 = new ScrollMagic.Scene({
+  triggerElement: '.changebackground',
+  duration: 2000,
+  triggerHook: 1
+}).setTween(changeloadingbar).addTo(controller10); // Step 9
+//Gsap Animation
+
+var step11Gsap = _gsap.gsap.to(".text9", {
+  opacity: 1
+}); //ScrollMagic Animation
+
+
+var controller11 = new ScrollMagic.Controller();
+var scene11 = new ScrollMagic.Scene({
+  triggerElement: '.step9',
+  duration: 2000,
+  triggerHook: 0
+}).setTween(step11Gsap).setPin(".step9").addTo(controller11);
+
+var testest = _gsap.gsap.timeline();
+
+testest.to(".explain-text1", {
+  scale: 0.8,
+  opacity: 1,
+  duration: 2
+});
+testest.to(".explain-text1", {
+  scale: 0,
+  opacity: 1,
+  duration: 2
+});
+testest.to(".explain-text2", {
+  scale: 0.8,
+  opacity: 1,
+  duration: 2
+});
+var controller12 = new ScrollMagic.Controller();
+var scene12 = new ScrollMagic.Scene({
+  triggerElement: '.step7',
+  duration: 2000,
+  triggerHook: 0
+}).setTween(testest).setPin(".step7").addTo(controller12);
+var getLoadingbar1 = document.querySelector(".loadingbar1");
+var getLoadingbar2 = document.querySelector(".loadingbar2");
+var getLoadingbar3 = document.querySelector(".loadingbar3");
+var getLoadingbar4 = document.querySelector(".loadingbar4");
+var body = document.body,
+    html = document.documentElement;
+var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+window.addEventListener('scroll', function () {
+  var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+  var umrechnerScrolled = scrollTop / (height - window.innerHeight) * 100;
+  var fensterHeight = window.innerHeight / 100;
+  var fensterWidth = window.innerWidth / 100;
+  var lineHeight = umrechnerScrolled * fensterHeight;
+  var lineWidth = umrechnerScrolled * fensterWidth;
+  getLoadingbar1.style.height = lineHeight + "px";
+  getLoadingbar2.style.width = lineWidth + "px";
+  getLoadingbar3.style.width = lineWidth + "px";
+  getLoadingbar4.style.height = lineHeight + "px";
+});
+window.addEventListener('load', function () {
+  var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+  var umrechnerScrolled = scrollTop / (height - window.innerHeight) * 100;
+  var fensterHeight = window.innerHeight / 100;
+  var fensterWidth = window.innerWidth / 100;
+  var lineHeight = umrechnerScrolled * fensterHeight;
+  var lineWidth = umrechnerScrolled * fensterWidth;
+  getLoadingbar1.style.height = lineHeight + "px";
+  getLoadingbar2.style.width = lineWidth + "px";
+  getLoadingbar3.style.width = lineWidth + "px";
+  getLoadingbar4.style.height = lineHeight + "px";
+}); //Delete Transition when loading
+
+(0, _jquery.default)(window).on('load', function () {
+  (0, _jquery.default)("body").removeClass("preload");
+}); //Smooth Scroll
+
+function init() {
+  new SmoothScroll(document, 120, 12);
+}
+
+function SmoothScroll(target, speed, smooth) {
+  if (target === document) target = document.scrollingElement || document.documentElement || document.body.parentNode || document.body; // cross browser support for document scrolling
+
+  var moving = false;
+  var pos = target.scrollTop;
+  var frame = target === document.body && document.documentElement ? document.documentElement : target; // safari is the new IE
+
+  target.addEventListener('mousewheel', scrolled, {
+    passive: false
+  });
+  target.addEventListener('DOMMouseScroll', scrolled, {
+    passive: false
+  });
+
+  function scrolled(e) {
+    e.preventDefault(); // disable default scrolling
+
+    var delta = normalizeWheelDelta(e);
+    pos += -delta * speed;
+    pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)); // limit scrolling
+
+    if (!moving) update();
+  }
+
+  function normalizeWheelDelta(e) {
+    if (e.detail) {
+      if (e.wheelDelta) return e.wheelDelta / e.detail / 40 * (e.detail > 0 ? 1 : -1); // Opera
+      else return -e.detail / 3; // Firefox
+    } else return e.wheelDelta / 120; // IE,Safari,Chrome
+
+  }
+
+  function update() {
+    moving = true;
+    var delta = (pos - target.scrollTop) / smooth;
+    target.scrollTop += delta;
+    if (Math.abs(delta) > 0.5) requestFrame(update);else moving = false;
+  }
+
+  var requestFrame = function () {
+    // requestAnimationFrame cross browser
+    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (func) {
+      window.setTimeout(func, 1000 / 50);
+    };
+  }();
+}
+
+init();
 },{"jquery":"../node_modules/jquery/dist/jquery.js","../css/style.scss":"assets/css/style.scss","simple-parallax-js":"../node_modules/simple-parallax-js/dist/simpleParallax.min.js","gsap":"../node_modules/gsap/index.js","gsap/CSSRulePlugin":"../node_modules/gsap/CSSRulePlugin.js","gsap/Draggable":"../node_modules/gsap/Draggable.js","gsap/EaselPlugin":"../node_modules/gsap/EaselPlugin.js","gsap/MotionPathPlugin":"../node_modules/gsap/MotionPathPlugin.js","gsap/PixiPlugin":"../node_modules/gsap/PixiPlugin.js","gsap/TextPlugin":"../node_modules/gsap/TextPlugin.js","gsap/ScrollToPlugin":"../node_modules/gsap/ScrollToPlugin.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -23153,7 +23430,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59027" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63041" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

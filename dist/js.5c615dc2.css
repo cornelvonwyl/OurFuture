@@ -106,7 +106,7 @@ section {
 }
 
 body {
-  line-height: 1;
+  line-height: 1.2;
 }
 
 ol,
@@ -136,6 +136,71 @@ img {
   width: 100%;
 }
 
+.preload * {
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+
+.flex-ver-middle {
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.high-index {
+  z-index: 100;
+}
+
+.secondary-color {
+  color: #101010;
+  background: #d2d8c5;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 80%;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 80%;
+  }
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 80%;
+  }
+}
+::-moz-selection {
+  /* Code for Firefox */
+  color: #101010;
+  background: rgba(210, 216, 197, 0.99);
+}
+
+::selection {
+  color: #101010;
+  background: rgba(210, 216, 197, 0.99);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #101010;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d2d8c5;
+}
+
 @font-face {
   font-family: "Monument";
   src: url("/MonumentExtended-Regular.6942f3c4.otf") format("opentype");
@@ -147,8 +212,8 @@ img {
   font-weight: bold;
 }
 body {
-  background: black;
-  color: white;
+  background: #101010;
+  color: #d2d8c5;
   font-family: "Monument";
 }
 
@@ -163,65 +228,112 @@ body {
   height: 100vh;
   -webkit-box-align: center;
           align-items: center;
+  overflow: hidden;
+  line-height: 1;
+}
+.start .videobackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  height: 100vh;
+  width: 100%;
+}
+.start .videooverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(23%, #101010), to(#101010c7));
+  background-image: linear-gradient(to top, #101010 23%, #101010c7 100%);
+  z-index: -1;
+}
+.start video {
+  width: 100%;
+  max-height: 100vh;
 }
 .start h1 {
   font-family: "Monument";
-  font-size: 8vw;
-  text-transform: uppercase;
+  font-size: 8.4vw;
   text-align: center;
-  font-weight: bold;
+  font-weight: normal;
   letter-spacing: 35px;
 }
-.start h1:nth-child(2) {
+.start h1.ourworld {
+  margin-bottom: 6vh;
+}
+.start .year {
   font-size: 28vw;
   -webkit-animation: yeartext 7s linear infinite;
           animation: yeartext 7s linear infinite;
   position: relative;
   font-weight: bold;
 }
-.start h1:nth-child(2):before {
+.start .year:before {
   content: "imJahr";
   position: absolute;
+  text-transform: uppercase;
   font-size: 2vw;
   top: 74.2%;
   left: 0.8%;
   letter-spacing: 42px;
   font-weight: normal;
   z-index: 100;
-  color: black;
-  font-variation-settings: "wght" 200;
+  color: #101010;
 }
 
-@-webkit-keyframes yeartext {
-  0% {
-    font-variation-settings: "wght" 300;
-  }
-  50% {
-    font-variation-settings: "wght" 700;
-  }
-  100% {
-    font-variation-settings: "wght" 300;
-  }
-}
-
-@keyframes yeartext {
-  0% {
-    font-variation-settings: "wght" 300;
-  }
-  50% {
-    font-variation-settings: "wght" 700;
-  }
-  100% {
-    font-variation-settings: "wght" 300;
-  }
-}
 .row {
   margin-right: 0rem;
   margin-left: 0rem;
 }
 
+.loadingbar1 {
+  position: fixed;
+  background: #d2d8c5;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  -webkit-transition: height ease-out;
+  transition: height ease-out;
+}
+
+.loadingbar2 {
+  position: fixed;
+  background: #d2d8c5;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  -webkit-transition: width ease-out;
+  transition: width ease-out;
+}
+
+.loadingbar3 {
+  position: fixed;
+  background: #d2d8c5;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  -webkit-transition: width ease-out;
+  transition: width ease-out;
+}
+
+.loadingbar4 {
+  position: fixed;
+  background: #d2d8c5;
+  bottom: 0;
+  right: 0;
+  width: 2px;
+  height: 0;
+  -webkit-transition: height ease-out;
+  transition: height ease-out;
+}
+
 .step {
-  height: 100vh;
+  height: 120vh;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
@@ -231,34 +343,142 @@ body {
   overflow: hidden;
   position: relative;
 }
-.step * {
-  font-size: 13rem;
+.step h2 {
+  font-size: 12rem;
 }
 
 .step1 .text1 {
   position: absolute;
-  top: 40%;
-  left: 80%;
+  top: 35%;
+  right: 80%;
 }
 .step1 .imgcontainer {
-  width: 50%;
+  width: 30%;
   position: absolute;
-  top: 30%;
+  top: 15%;
   right: 20%;
   z-index: -1;
 }
 
 .step2 .text2 {
   position: absolute;
-  top: 40%;
+  top: 60%;
   left: 80%;
 }
 .step2 .imgcontainer {
   width: 50%;
   position: absolute;
   top: 30%;
+  right: 40%;
+  z-index: -1;
+}
+
+.step3 .text3 {
+  position: absolute;
+  top: 40%;
+  right: 80%;
+}
+.step3 .imgcontainer {
+  width: 50%;
+  position: absolute;
+  top: 30%;
+  right: 30%;
+  z-index: -1;
+}
+
+.step4 .text4 {
+  position: absolute;
+  top: 55%;
+  left: 70%;
+}
+.step4 .imgcontainer {
+  width: 50%;
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  z-index: -1;
+}
+
+.step5 .text5 {
+  position: absolute;
+  top: 45%;
+  left: -70%;
+  font-size: 7.5rem;
+}
+.step5 .imgcontainer {
+  width: 30%;
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  z-index: -1;
+}
+
+.step6 .text6 {
+  position: absolute;
+  top: 45%;
+  left: 80%;
+  font-size: 7rem;
+}
+.step6 .imgcontainer {
+  width: 50%;
+  position: absolute;
+  top: 30%;
   right: 20%;
   z-index: -1;
+}
+
+.step7 {
+  font-size: 5rem;
+  line-height: 1.3;
+}
+.step7 .explain-text {
+  position: relative;
+}
+.step7 .explain-text::after {
+  content: "?";
+  position: absolute;
+  top: -10%;
+  right: 0;
+  font-size: 50rem;
+  opacity: 0.15;
+}
+
+.step8 {
+  height: 140vh;
+}
+.step8 .text8 {
+  font-size: 7rem;
+  text-align: right;
+  margin-right: -5rem;
+  padding: 2rem;
+  background: #101010;
+}
+.step8 .imgcontainer {
+  z-index: -1;
+}
+
+.changebackground {
+  height: 80vh;
+}
+
+.step9 {
+  background-image: url(/neapel.bb6507bf.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+.step9 .text9 {
+  font-size: 8rem;
+  opacity: 0;
+}
+
+.explain-text1,
+.explain-text2 {
+  position: absolute;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
 }
 
 /*# sourceMappingURL=/js.5c615dc2.css.map */

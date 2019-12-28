@@ -1,4 +1,39 @@
 @import "reset";
+@import "helpers";
+@import "layout";
+
+
+$loadingbarthickness: 2px;
+
+@mixin transition($whichpart) {
+  transition: $whichpart ease-out;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: $black;
+  background: rgba(210, 216, 197, 0.99);
+}
+
+::selection {
+  color: $black;
+  background: rgba(210, 216, 197, 0.99);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $lightgreen;
+}
 
 @font-face {
   font-family: "Monument";
@@ -13,8 +48,8 @@
 }
 
 body {
-  background: black;
-  color: white;
+  background: #101010;
+  color: $lightgreen;
   font-family: "Monument";
 }
 
@@ -24,17 +59,46 @@ body {
   flex-direction: column;
   height: 100vh;
   align-items: center;
+  overflow: hidden;
+  line-height: 1;
+
+  .videobackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .videooverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to top, #101010 23%, #101010c7 100%);
+    z-index: -1;
+  }
+
+  video {
+    width: 100%;
+    max-height: 100vh;
+  }
 
   h1 {
     font-family: "Monument";
-    font-size: 8vw;
-    text-transform: uppercase;
+    font-size: 8.4vw;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
     letter-spacing: 35px;
+
+    &.ourworld {
+      margin-bottom: 6vh;
+    }
   }
 
-  h1:nth-child(2) {
+  .year {
     font-size: 28vw;
     animation: yeartext 7s linear infinite;
     position: relative;
@@ -43,29 +107,15 @@ body {
     &:before {
       content: "imJahr";
       position: absolute;
+      text-transform: uppercase;
       font-size: 2vw;
       top: 74.2%;
       left: 0.8%;
       letter-spacing: 42px;
       font-weight: normal;
       z-index: 100;
-      color: black;
-      font-variation-settings: "wght" 200;
+      color: $black;
     }
-  }
-}
-
-@keyframes yeartext {
-  0% {
-    font-variation-settings: "wght" 300;
-  }
-
-  50% {
-    font-variation-settings: "wght" 700;
-  }
-
-  100% {
-    font-variation-settings: "wght" 300;
   }
 }
 
@@ -74,40 +124,70 @@ body {
   margin-left: 0rem;
 }
 
-// .loadingbar {
-//   position: fixed;
-//   background: white;
-//   top: 0;
-//   left: 0;
-//   width: 5px;
-//   height: 0;
-//   transition: height 1s ease-out;
-// }
+.loadingbar1 {
+  position: fixed;
+  background: $lightgreen;
+  top: 0;
+  left: 0;
+  width: $loadingbarthickness;
+  height: 0;
+  @include transition(height);
+}
+
+.loadingbar2 {
+  position: fixed;
+  background: $lightgreen;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: $loadingbarthickness;
+  @include transition(width);
+}
+
+.loadingbar3 {
+  position: fixed;
+  background: $lightgreen;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: $loadingbarthickness;
+  @include transition(width);
+}
+
+.loadingbar4 {
+  position: fixed;
+  background: $lightgreen;
+  bottom: 0;
+  right: 0;
+  width: $loadingbarthickness;
+  height: 0;
+  @include transition(height);
+}
 
 .step {
-  height: 100vh;
+  height: 120vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   position: relative;
 
-  * {
-    font-size: 13rem;
+  h2 {
+    font-size: 12rem;
   }
 }
 
 .step1 {
   .text1 {
     position: absolute;
-    top: 40%;
-    left: 80%;
+    top: 35%;
+    right: 80%;
   }
 
   .imgcontainer {
-    width: 50%;
+    width: 30%;
     position: absolute;
-    top: 30%;
+    top: 15%;
     right: 20%;
     z-index: -1;
   }
@@ -116,9 +196,80 @@ body {
 .step2 {
   .text2 {
     position: absolute;
-    top: 40%;
+    top: 60%;
     left: 80%;
   }
+
+  .imgcontainer {
+    width: 50%;
+    position: absolute;
+    top: 30%;
+    right: 40%;
+    z-index: -1;
+  }
+}
+
+
+.step3 {
+  .text3 {
+    position: absolute;
+    top: 40%;
+    right: 80%;
+  }
+
+  .imgcontainer {
+    width: 50%;
+    position: absolute;
+    top: 30%;
+    right: 30%;
+    z-index: -1;
+  }
+}
+
+
+.step4 {
+  .text4 {
+    position: absolute;
+    top: 55%;
+    left: 70%;
+  }
+
+  .imgcontainer {
+    width: 50%;
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    z-index: -1;
+  }
+}
+
+
+.step5 {
+  .text5 {
+    position: absolute;
+    top: 45%;
+    left: -70%;
+    font-size: 7.5rem;
+  }
+
+  .imgcontainer {
+    width: 30%;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    z-index: -1;
+  }
+}
+
+
+.step6 {
+  .text6 {
+    position: absolute;
+    top: 45%;
+    left: 80%;
+    font-size: 7rem;
+  }
+
   .imgcontainer {
     width: 50%;
     position: absolute;
@@ -126,4 +277,70 @@ body {
     right: 20%;
     z-index: -1;
   }
+}
+
+
+.step7 {
+  font-size: 5rem;
+  line-height: 1.3;
+
+  .explain-text {
+    position: relative;
+  }
+
+
+  .explain-text::after {
+    content: '?';
+    position: absolute;
+    top: -10%;
+    right: 0;
+    font-size: 50rem;
+    opacity: 0.15;
+  }
+}
+
+
+.step8 {
+  height: 140vh;
+
+
+  .text8 {
+    font-size: 7rem;
+    text-align: right;
+    margin-right: -5rem;
+    padding: 2rem;
+    background: $black
+  }
+
+
+  .imgcontainer {
+    z-index: -1;
+  }
+}
+
+.changebackground {
+  height: 80vh;
+}
+
+
+.step9 {
+  background-image: url(../image/neapel.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  height: 100vh;
+
+  .text9 {
+    font-size: 8rem;
+    opacity: 0;
+  }
+}
+
+
+.explain-text1,
+.explain-text2 {
+  position: absolute;
+  transform: scale(0);
+  opacity: 0;
 }

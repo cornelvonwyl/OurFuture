@@ -333,7 +333,7 @@ const scene11 = new ScrollMagic.Scene({
 const testest = gsap.timeline()
 testest.to(
     ".explain-text1", {
-        scale: 0.8,
+        scale: 0.9,
         opacity: 1,
         duration: 2
     })
@@ -341,12 +341,28 @@ testest.to(
 testest.to(
     ".explain-text1", {
         scale: 0,
-        opacity: 1,
+        opacity: 0,
         duration: 2
     })
 testest.to(".explain-text2", {
-    scale: 0.8,
+    scale: 0.9,
     opacity: 1,
+    duration: 2
+})
+testest.to(".explain-text2", {
+    scale: 0,
+    opacity: 0,
+    duration: 2
+})
+
+testest.to(".explain-text3", {
+    scale: 0.9,
+    opacity: 1,
+    duration: 2
+})
+testest.to(".explain-text3", {
+    scale: 0,
+    opacity: 0,
     duration: 2
 })
 

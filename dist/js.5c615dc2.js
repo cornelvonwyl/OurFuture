@@ -11001,7 +11001,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"C:\\Users\\corne\\CloudStation\\Cornel Privat\\HSLU - Digital Ideation\\3. Semester\\Storytelling\\Abschlussarbeit\\Storytelling Project\\OurFuture\\src\\assets\\font\\MonumentExtended-Regular.otf":[["MonumentExtended-Regular.6942f3c4.otf","assets/font/MonumentExtended-Regular.otf"],"assets/font/MonumentExtended-Regular.otf"],"C:\\Users\\corne\\CloudStation\\Cornel Privat\\HSLU - Digital Ideation\\3. Semester\\Storytelling\\Abschlussarbeit\\Storytelling Project\\OurFuture\\src\\assets\\font\\MonumentExtended-Ultrabold.otf":[["MonumentExtended-Ultrabold.a16f3cca.otf","assets/font/MonumentExtended-Ultrabold.otf"],"assets/font/MonumentExtended-Ultrabold.otf"],"./..\\image\\neapel.jpg":[["neapel.bb6507bf.jpg","assets/image/neapel.jpg"],"assets/image/neapel.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/simple-parallax-js/dist/simpleParallax.min.js":[function(require,module,exports) {
+},{"C:\\Users\\corne\\CloudStation\\Cornel Privat\\HSLU - Digital Ideation\\3. Semester\\Storytelling\\Abschlussarbeit\\Storytelling Project\\OurFuture\\src\\assets\\font\\MonumentExtended-Regular.otf":[["MonumentExtended-Regular.6942f3c4.otf","assets/font/MonumentExtended-Regular.otf"],"assets/font/MonumentExtended-Regular.otf"],"C:\\Users\\corne\\CloudStation\\Cornel Privat\\HSLU - Digital Ideation\\3. Semester\\Storytelling\\Abschlussarbeit\\Storytelling Project\\OurFuture\\src\\assets\\font\\MonumentExtended-Ultrabold.otf":[["MonumentExtended-Ultrabold.a16f3cca.otf","assets/font/MonumentExtended-Ultrabold.otf"],"assets/font/MonumentExtended-Ultrabold.otf"],"./..\\image\\neapel.jpg":[["neapel.bb6507bf.jpg","assets/image/neapel.jpg"],"assets/image/neapel.jpg"],"./..\\image\\atom.jpg":[["atom.b8fa90e7.jpg","assets/image/atom.jpg"],"assets/image/atom.jpg"],"./..\\image\\wind.jpg":[["wind.18b05701.jpg","assets/image/wind.jpg"],"assets/image/wind.jpg"],"./..\\image\\labor.jpg":[["labor.a0e6ba95.jpg","assets/image/labor.jpg"],"assets/image/labor.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/simple-parallax-js/dist/simpleParallax.min.js":[function(require,module,exports) {
 var define;
 /*!
  * simpleParallax.min - simpleParallax is a simple JavaScript library that gives your website parallax animations on any images, 
@@ -23294,18 +23294,33 @@ var scene11 = new ScrollMagic.Scene({
 var testest = _gsap.gsap.timeline();
 
 testest.to(".explain-text1", {
-  scale: 0.8,
+  scale: 0.9,
   opacity: 1,
   duration: 2
 });
 testest.to(".explain-text1", {
   scale: 0,
+  opacity: 0,
+  duration: 2
+});
+testest.to(".explain-text2", {
+  scale: 0.9,
   opacity: 1,
   duration: 2
 });
 testest.to(".explain-text2", {
-  scale: 0.8,
+  scale: 0,
+  opacity: 0,
+  duration: 2
+});
+testest.to(".explain-text3", {
+  scale: 0.9,
   opacity: 1,
+  duration: 2
+});
+testest.to(".explain-text3", {
+  scale: 0,
+  opacity: 0,
   duration: 2
 });
 var controller12 = new ScrollMagic.Controller();
@@ -23430,7 +23445,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63041" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65042" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

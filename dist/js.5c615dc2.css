@@ -430,16 +430,34 @@ body {
 .step7 {
   font-size: 5rem;
   line-height: 1.3;
+  height: 100vh;
 }
-.step7 .explain-text {
-  position: relative;
+.step7 .explain-text1,
+.step7 .explain-text2,
+.step7 .explain-text3 {
+  position: absolute;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+  width: 90%;
+  text-align: center;
+  line-height: 1.4;
 }
-.step7 .explain-text::after {
+.step7 .explain-text1::after {
+  content: "!";
+  position: absolute;
+  top: 30%;
+  right: -6%;
+  font-size: 30rem;
+  opacity: 0.15;
+}
+.step7 .explain-text2::after,
+.step7 .explain-text3::after {
   content: "?";
   position: absolute;
-  top: -10%;
-  right: 0;
-  font-size: 50rem;
+  top: 30%;
+  right: -6%;
+  font-size: 30rem;
   opacity: 0.15;
 }
 
@@ -472,13 +490,90 @@ body {
   font-size: 8rem;
   opacity: 0;
 }
-
-.explain-text1,
-.explain-text2 {
+.step9::before {
+  content: "";
   position: absolute;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  opacity: 0;
+  top: 0%;
+  left: 0%;
+  height: 100vh;
+  width: 100%;
+  background-color: #101010db;
+}
+
+.step10 {
+  height: 100vh;
+}
+.step10 .text9 {
+  text-align: center;
+  font-size: 5rem;
+}
+
+.step11 {
+  height: 100vh;
+}
+.step11 h2 {
+  font-size: 3rem;
+  position: relative;
+  max-width: 100%;
+  align-self: flex-end;
+  padding: 0 0 2rem 1rem;
+}
+.step11 .szenario-title {
+  font-size: 3rem;
+  width: 191%;
+  text-align: center;
+  position: absolute;
+  -webkit-transform: translateY(478%) translateX(6%) rotate(-90deg);
+          transform: translateY(478%) translateX(6%) rotate(-90deg);
+  -webkit-transform-origin: left bottom;
+  transform-origin: left bottom;
+  opacity: 0.4;
+}
+.step11 .szenario {
+  height: 100vh;
+  background-size: cover;
+}
+.step11 .szenario-1 {
+  background-image: url(/atom.b8fa90e7.jpg);
+}
+.step11 .szenario-1::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100vh;
+  width: 100%;
+  background-color: #101010c4;
+}
+.step11 .szenario-1 :hover::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100vh;
+  width: 100%;
+  background-color: blue;
+}
+.step11 .szenario-2 {
+  background-image: url(/wind.18b05701.jpg);
+}
+.step11 .szenario-3 {
+  background-image: url(/labor.a0e6ba95.jpg);
+}
+.step11 .szenario-content {
+  height: 100vh;
+  position: relative;
+  z-index: 100;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+}
+
+.container-fluid {
+  padding: 0 !important;
 }
 
 /*# sourceMappingURL=/js.5c615dc2.css.map */

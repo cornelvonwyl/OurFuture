@@ -1,6 +1,7 @@
 import $ from 'jquery';
-import '../css/style.scss'
+import '../css/style.scss';
 
+import Typed from 'typed.js';
 
 import simpleParallax from 'simple-parallax-js';
 import {
@@ -31,43 +32,25 @@ import {
 gsap.registerPlugin(CSSRulePlugin, Draggable, EaselPlugin, MotionPathPlugin, PixiPlugin, TextPlugin, ScrollToPlugin);
 
 
-
-
-
-
 // Start1
 //Gsap Animation
-const start1Gsap = gsap.to(".ourworld", {
-    xPercent: 100
+const start1Gsap = gsap.to(".start", {
+    opacity: 0
 });
 
 //ScrollMagic Animation
 const controller30 = new ScrollMagic.Controller();
 const scene30 = new ScrollMagic.Scene({
         triggerElement: '.start',
-        duration: 2000,
+        duration: 800,
         triggerHook: 0
     })
     .setTween(start1Gsap)
     .addTo(controller30);
 
 
-// Start2
-//Gsap Animation
-const start2Gsap = gsap.to(".year", {
-    xPercent: -100
-});
 
-//ScrollMagic Animation
-const controller31 = new ScrollMagic.Controller();
-const scene40 = new ScrollMagic.Scene({
-        triggerElement: '.start',
-        duration: 2000,
-        triggerHook: 0
-    })
-    .setTween(start2Gsap)
 
-    .addTo(controller31);
 
 
 
@@ -85,7 +68,7 @@ new simpleParallax(step1Para, {
 
 //Gsap Animation
 const step1Gsap = gsap.to(".text1", {
-    xPercent: 100,
+    xPercent: 60,
     delay: 1
 });
 
@@ -321,7 +304,7 @@ const step11Gsap = gsap.to(".text9", {
 const controller11 = new ScrollMagic.Controller();
 const scene11 = new ScrollMagic.Scene({
         triggerElement: '.step9',
-        duration: 2000,
+        duration: 1500,
         triggerHook: 0
     })
     .setTween(step11Gsap)
@@ -330,40 +313,53 @@ const scene11 = new ScrollMagic.Scene({
 
 
 
+
+//Step7 Text fadein and out
 const testest = gsap.timeline()
 testest.to(
     ".explain-text1", {
         scale: 0.9,
         opacity: 1,
-        duration: 2
+        duration: 13
     })
 
 testest.to(
     ".explain-text1", {
         scale: 0,
         opacity: 0,
-        duration: 2
+        duration: 13
     })
 testest.to(".explain-text2", {
     scale: 0.9,
     opacity: 1,
-    duration: 2
+    duration: 13
 })
 testest.to(".explain-text2", {
     scale: 0,
     opacity: 0,
-    duration: 2
+    duration: 13
 })
 
 testest.to(".explain-text3", {
     scale: 0.9,
     opacity: 1,
-    duration: 2
+    duration: 13
 })
 testest.to(".explain-text3", {
     scale: 0,
     opacity: 0,
-    duration: 2
+    duration: 13
+})
+
+testest.to(".explain-text4", {
+    scale: 0.9,
+    opacity: 1,
+    duration: 13
+})
+testest.to(".explain-text4", {
+    scale: 0,
+    opacity: 0,
+    duration: 13
 })
 
 
@@ -398,13 +394,18 @@ const getLoadingbar4 = document.querySelector(".loadingbar4");
 const body = document.body,
     html = document.documentElement;
 
-const height = Math.max(body.scrollHeight, body.offsetHeight,
-    html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+
+
+
 
 
 window.addEventListener('scroll', function () {
     let scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
+
+    const height = Math.max(body.scrollHeight, body.offsetHeight,
+        html.clientHeight, html.scrollHeight, html.offsetHeight);
 
 
     let umrechnerScrolled = scrollTop / (height - window.innerHeight) * 100;
@@ -452,79 +453,249 @@ $(window).on('load', function () {
 
 
 
-//Smooth Scroll
+// //Smooth Scroll
 
-function init() {
-    new SmoothScroll(document, 120, 12)
+// function init() {
+//     new SmoothScroll(document, 120, 12)
+// }
+
+// function SmoothScroll(target, speed, smooth) {
+//     if (target === document)
+//         target = (document.scrollingElement ||
+//             document.documentElement ||
+//             document.body.parentNode ||
+//             document.body) // cross browser support for document scrolling
+
+//     var moving = false
+//     var pos = target.scrollTop
+//     var frame = target === document.body &&
+//         document.documentElement ?
+//         document.documentElement :
+//         target // safari is the new IE
+
+//     target.addEventListener('mousewheel', scrolled, {
+//         passive: false
+//     })
+//     target.addEventListener('DOMMouseScroll', scrolled, {
+//         passive: false
+//     })
+
+//     function scrolled(e) {
+//         e.preventDefault(); // disable default scrolling
+
+//         var delta = normalizeWheelDelta(e)
+
+//         pos += -delta * speed
+//         pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)) // limit scrolling
+
+//         if (!moving) update()
+//     }
+
+//     function normalizeWheelDelta(e) {
+//         if (e.detail) {
+//             if (e.wheelDelta)
+//                 return e.wheelDelta / e.detail / 40 * (e.detail > 0 ? 1 : -1) // Opera
+//             else
+//                 return -e.detail / 3 // Firefox
+//         } else
+//             return e.wheelDelta / 120 // IE,Safari,Chrome
+//     }
+
+//     function update() {
+//         moving = true
+
+//         var delta = (pos - target.scrollTop) / smooth
+
+//         target.scrollTop += delta
+
+//         if (Math.abs(delta) > 0.5)
+//             requestFrame(update)
+//         else
+//             moving = false
+//     }
+
+//     var requestFrame = function () { // requestAnimationFrame cross browser
+//         return (
+//             window.requestAnimationFrame ||
+//             window.webkitRequestAnimationFrame ||
+//             window.mozRequestAnimationFrame ||
+//             window.oRequestAnimationFrame ||
+//             window.msRequestAnimationFrame ||
+//             function (func) {
+//                 window.setTimeout(func, 1000 / 50);
+//             }
+//         );
+//     }()
+// }
+
+// init();
+
+let szenario1 = document.querySelector("#szenario-1");
+let szenario2 = document.querySelector("#szenario-2");
+let szenario3 = document.querySelector("#szenario-3");
+
+// Showing Stories
+const showSzenario1 = () => {
+    szenario1.style.display = "flex";
+    szenario2.style.display = "none";
+    szenario3.style.display = "none";
+
+    szenario2.style.opacity = "0";
+    szenario3.style.opacity = "0";
 }
 
-function SmoothScroll(target, speed, smooth) {
-    if (target === document)
-        target = (document.scrollingElement ||
-            document.documentElement ||
-            document.body.parentNode ||
-            document.body) // cross browser support for document scrolling
+const linktoSzenario1 = () => {
 
-    var moving = false
-    var pos = target.scrollTop
-    var frame = target === document.body &&
-        document.documentElement ?
-        document.documentElement :
-        target // safari is the new IE
+    setTimeout(() => {
+        window.location.href = '/#szenario-1';
+        szenario1.style.opacity = "1";
+    }, 200);
 
-    target.addEventListener('mousewheel', scrolled, {
-        passive: false
-    })
-    target.addEventListener('DOMMouseScroll', scrolled, {
-        passive: false
-    })
-
-    function scrolled(e) {
-        e.preventDefault(); // disable default scrolling
-
-        var delta = normalizeWheelDelta(e)
-
-        pos += -delta * speed
-        pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)) // limit scrolling
-
-        if (!moving) update()
-    }
-
-    function normalizeWheelDelta(e) {
-        if (e.detail) {
-            if (e.wheelDelta)
-                return e.wheelDelta / e.detail / 40 * (e.detail > 0 ? 1 : -1) // Opera
-            else
-                return -e.detail / 3 // Firefox
-        } else
-            return e.wheelDelta / 120 // IE,Safari,Chrome
-    }
-
-    function update() {
-        moving = true
-
-        var delta = (pos - target.scrollTop) / smooth
-
-        target.scrollTop += delta
-
-        if (Math.abs(delta) > 0.5)
-            requestFrame(update)
-        else
-            moving = false
-    }
-
-    var requestFrame = function () { // requestAnimationFrame cross browser
-        return (
-            window.requestAnimationFrame ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame ||
-            window.oRequestAnimationFrame ||
-            window.msRequestAnimationFrame ||
-            function (func) {
-                window.setTimeout(func, 1000 / 50);
-            }
-        );
-    }()
 }
 
-init();
+
+const showSzenario2 = () => {
+    szenario1.style.display = "none";
+    szenario2.style.display = "flex";
+    szenario3.style.display = "none";
+
+
+    szenario1.style.opacity = "0";
+    szenario3.style.opacity = "0";
+}
+
+const linktoSzenario2 = () => {
+
+    setTimeout(() => {
+        window.location.href = '/#szenario-2';
+        szenario2.style.opacity = "1";
+    }, 200);
+
+}
+
+const showSzenario3 = () => {
+    szenario1.style.display = "none";
+    szenario2.style.display = "none";
+    szenario3.style.display = "flex";
+
+    szenario2.style.opacity = "0";
+    szenario1.style.opacity = "0";
+}
+
+const linktoSzenario3 = () => {
+
+    setTimeout(() => {
+        window.location.href = '/#szenario-3';
+        szenario3.style.opacity = "1";
+    }, 200);
+
+}
+
+
+
+document.querySelector(".szenario-1").addEventListener("click", () => {
+    showSzenario1();
+    linktoSzenario1();
+});
+
+
+document.querySelector(".szenario-2").addEventListener("click", () => {
+    showSzenario2();
+    linktoSzenario2();
+});
+
+document.querySelector(".szenario-3").addEventListener("click", () => {
+    showSzenario3();
+    linktoSzenario3();
+});
+
+
+
+
+const eins = new Typed('.eins', {
+    strings: ["Zukunfts"],
+    typeSpeed: 70,
+
+    loop: false,
+});
+
+
+
+const zwei = new Typed('.zwei', {
+    strings: ["geschichte"],
+    typeSpeed: 70,
+    startDelay: 850,
+
+    loop: false,
+});
+
+const drei = new Typed('.drei', {
+    strings: ["eines jungen Italiener"],
+    typeSpeed: 60,
+    startDelay: 1800,
+
+    loop: false,
+});
+
+
+
+
+
+
+
+let isInViewport = function (elem) {
+    let bounding = elem.getBoundingClientRect();
+    return (
+        bounding.top >= 0 &&
+        bounding.left >= 0 &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+};
+
+let einleitung1 = document.querySelector('.ourworld');
+let einleitung2 = document.querySelector('.year');
+
+window.addEventListener('scroll', () => {
+
+    if (isInViewport(einleitung1)) {
+        anieinleitung1();
+    }
+
+    if (isInViewport(einleitung2)) {
+        anieinleitung2();
+    }
+});
+
+
+
+let anieinleitung1 = (function () {
+    let executed = false;
+    return function () {
+        if (!executed) {
+            executed = true;
+            const ourWorld = new Typed('.ourworld', {
+                strings: ["Unsere Welt"],
+                typeSpeed: 100,
+                startDelay: 400,
+                loop: false,
+            });
+        }
+    };
+})();
+
+
+let anieinleitung2 = (function () {
+    let executed = false;
+    return function () {
+        if (!executed) {
+            executed = true;
+            const year = new Typed('.year', {
+                strings: ["2100"],
+                typeSpeed: 200,
+                startDelay: 2000,
+                loop: false,
+            });
+        }
+    };
+})();
